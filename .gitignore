@@ -1,0 +1,13 @@
+# Node
+node_modules/
+package-lock.json
+
+# Playwright
+playwright-report/
+test-results/
+*.zip
+*.mp4
+
+# IDE / OS
+.vscode/
+.DS_Store
