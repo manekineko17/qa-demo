@@ -1,12 +1,33 @@
-const { defineConfig } = require('@playwright/test');
+// @ts-check
+const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   timeout: 30_000,
+  // Dossier de tests (optionnel si on utilise "tests/")
+  testDir: 'tests',
+
   use: {
-    headless: true,              // true = pas d’ouverture visuelle du navigateur
-    trace: 'on-first-retry',     // trace.zip en cas d’échec (1ère relance)
+    headless: true,
+    trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
+
   reporter: [['html', { open: 'never' }]],
+
+  // Multi-navigateurs
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+  ],
 });

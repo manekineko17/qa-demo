@@ -3,7 +3,7 @@
 ## Contexte
 - Application : OrangeHRM Demo  
 - URL : https://opensource-demo.orangehrmlive.com/  
-- Navigateur : Firefox  
+- Navigateurs : Firefox, Chrome, Safari  
 - Date : 17-08-2025  
 - Cas de test : LOGIN-002 (Login échec)
 

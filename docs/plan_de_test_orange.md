@@ -10,7 +10,7 @@ mot de passe valide, mot de passe invalide
 - OrangeHRM Demo — https://opensource-demo.orangehrmlive.com/
 
 ## Environnement
-- Navigateur : Firefox
+- Navigateur : Firefox, Safari, Chrome
 - Environnement de démo
 - OS : Windows
 - Réseau : internet privé
@@ -21,15 +21,16 @@ mot de passe valide, mot de passe invalide
 
 ## Cas de test
 
-| ID        | Titre        | Etapes                                                                    | Résultat attendu                                        |
-|-----------|--------------|---------------------------------------------------------------------------|---------------------------------------------------------|
-| LOGIN-001 | Login succès | 1) Ouvrir l'URL 2) Saisir `Admin` / `admin123` 3) Cliquer sur Login       | URL contient `/dashboard` + en-tête “Dashboard” visible |
-| LOGIN-002 | Login échec  | 1) Ouvrir l'URL 2) Saisir `Admin` / `wrong_password` 3) Cliquer sur Login | Message “Invalid credentials” visible                   |
+| ID              | Titre        | Etapes                                                                    | Résultat attendu                                        |
+|-----------------|--------------|---------------------------------------------------------------------------|---------------------------------------------------------|
+| LOGIN-001       | Login succès | 1) Ouvrir l'URL 2) Saisir `Admin` / `admin123` 3) Cliquer sur Login       | URL contient `/dashboard` + en-tête “Dashboard” visible |
+| LOGIN-002       | Login échec  | 1) Ouvrir l'URL 2) Saisir `Admin` / `wrong_password` 3) Cliquer sur Login | Message “Invalid credentials” visible                   |
+| Texte-page      | Texte-page   | 1) Ouvrir l'URL                                                           | Titre 'OrangeHRM' affiché sur l'onglet de la page       |
 
 ## Type de tests
-Testts automatisés
+Tests automatisés
 
 ## Critères d’acceptation
-- Les 2 cas passent (PASS).  
+- Les 3 cas passent (PASS).  
 - Preuves : rapport HTML Playwright (+ traces/screenshots en cas d’échec).
 

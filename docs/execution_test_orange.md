@@ -14,7 +14,14 @@ Création du projet Node.js :
 ```
 
 Ajout des traces dans playwright.config.js :
-
+```javascript
+  use: {
+    headless: true,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+  },
+```
 
 -----------------------
 
@@ -83,6 +90,20 @@ test('LOGIN-002 - Login échec', async ({ page }) => {
 });
 ```
 
+### Texte-page - OrangeHRM
+Etapes : 
+1) Ouvrir l'URL    
+
+Résultat attendu : Le titre de la page 'OrangeHRM' est affiché sur l'onglet
+
+```javascript
+//Test 3 - Texte page
+test('Texte-page', async ({ page }) => {
+  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await expect(page).toHaveTitle('OrangeHRM')
+});
+```
+
 -----------------------
 
 ## 4. Commandes d'exécution
@@ -105,21 +126,31 @@ Générer une trace:
 
 ### Sur le terminal :
 ```bash
-Running 2 tests using 1 worker
-
-  ✓  1 tests\testsorange.spec.js:4:1 › LOGIN-001 - Login succès (7.0s)
-  ✓  2 tests\testsorange.spec.js:15:1 › LOGIN-002 - Login échec (4.1s)
-
-  2 passed (12.5s)
+Running 9 tests using 3 workers
+  9 passed (27.5s)
 ```
 
 ### Sur le navigateur : 
 Cas succès → redirection vers Dashboard, en-tête affiché.
 Cas échec → message “Invalid credentials” affiché.
+Cas texte-page -> le titre de la page 'OrangHRM' doit être affiché
+
+-----------------------
+
+## Cas de test vs exécutions
+
+| Cas de test (logique)                 | Navigateurs exécutés      | Nb d'exécutions |
+|---------------------------------------|---------------------------|-----------------|
+| Login valide (valid credentials)      | Chromium, Firefox, WebKit |       3         |
+| Login invalide (invalid credentials)  | Chromium, Firefox, WebKit |       3         |
+| Texte-page (OrangeHRM)                | Chromium, Firefox, WebKit |       3         |
+
+Total : 3 cas de test, 9 exécutions.
 
 -----------------------
 
 ## 6. Conclusion
 
-LOGIN-001 : PASS ✅
-LOGIN-002 : PASS ✅
+LOGIN-001 : PASS 
+LOGIN-002 : PASS 
+Texte-page: PASS

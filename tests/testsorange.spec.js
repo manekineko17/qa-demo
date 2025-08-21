@@ -22,3 +22,16 @@ test('LOGIN-002 - Login échec', async ({ page }) => {
   await expect(error).toBeVisible();
 });
 
+//Test 3 - Texte page
+test('Texte-page', async ({ page }) => {
+  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await expect(page).toHaveTitle('OrangeHRM')
+});
+
+//Test 4 - Texte page échec
+test('Texte-page-echec', async ({ page }) => {
+  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await expect(page).toHaveTitle('Orange')
+});
+
+

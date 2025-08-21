@@ -4,3 +4,4 @@
 |-----------|--------|--------------------------------|-------------------------------|
 | LOGIN-001 | PASS   | Rapport Playwright run #1      | Dashboard bien affiché        |
 | LOGIN-002 | PASS   | Rapport Playwright run #1      | Message “Invalid credentials” |
+| Texte-page| PASS   | Rapport Playwright run #1      | Titre bien affiché            |
